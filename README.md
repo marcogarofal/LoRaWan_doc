@@ -101,9 +101,6 @@ project/
 ```bash
 python3 _catalogo.py
 ```
-Compiles the Catalog smart contract
-Generates TEAL bytecode and metadata files
-Exports artifacts to ./catalogo/artifacts/
 
 1. Compiles the Catalog smart contract
    - Note the **App ID** (example: 1001)
@@ -114,9 +111,9 @@ Exports artifacts to ./catalogo/artifacts/
 ```bash
 python3 _SC.py
 ```
-Compiles the SLA smart contract
-Generates TEAL bytecode and metadata files
-Exports artifacts to ./SC/artifacts/
+1. Compiles the SLA smart contract
+2. Generates TEAL bytecode and metadata files
+3. Exports artifacts to ./SC/artifacts/
 
 
 
