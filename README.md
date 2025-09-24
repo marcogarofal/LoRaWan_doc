@@ -122,7 +122,7 @@ python3 _SC.py
 
 ### 1. Start LoRa Manager
 ```bash
-python deploy_catalogo_by_lora.py
+python3 deploy_catalogo_by_lora.py
 ```
 
 **Operations:**
@@ -144,7 +144,7 @@ Address: XXXXXXXXXX
 
 ### 2. Start Vodafone Provider
 ```bash
-python deploy_SC_forwarder.py
+python3 deploy_SC_forwarder.py
 ```
 
 **Configuration for SUCCESS:**
@@ -171,7 +171,7 @@ python deploy_SC_forwarder.py
 
 ### 3. Start Tim Provider
 ```bash
-python deploy_SC_home.py
+python3 deploy_SC_home.py
 ```
 
 **COMPATIBLE Configuration:**
