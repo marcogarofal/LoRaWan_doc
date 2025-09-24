@@ -105,6 +105,11 @@ Compiles the Catalog smart contract
 Generates TEAL bytecode and metadata files
 Exports artifacts to ./catalogo/artifacts/
 
+1. Compiles the Catalog smart contract
+   - Note the **App ID** (example: 1001)
+2. Generates TEAL bytecode and metadata files
+3. Exports artifacts to ./catalogo/artifacts/
+
 
 ```bash
 python3 _SC.py
