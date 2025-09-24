@@ -93,7 +93,7 @@ def close_out() -> pt.Expr:
 
 @app.external(authorize=bk.Authorize.only(pt.Global.creator_address()))
 def init(
-    app_id_catalogo: pt.abi.Uint64,
+    app_id_catalog: pt.abi.Uint64,
     price: pt.abi.Uint64,
     threshold: pt.abi.Uint64,
     tolerance: pt.abi.Uint64,
@@ -105,14 +105,14 @@ def init(
 ) -> pt.Expr:
     return pt.Seq(
         # Input validation
-        pt.Assert(app_id_catalogo.get() > pt.Int(0), comment="Invalid catalog app ID"),
+        pt.Assert(app_id_catalog.get() > pt.Int(0), comment="Invalid catalog app ID"),
         pt.Assert(price.get() > pt.Int(0), comment="Price must be greater than 0"),
         pt.Assert(threshold.get() > pt.Int(0), comment="Threshold must be greater than 0"),
         pt.Assert(tolerance.get() <= pt.Int(100), comment="Tolerance must be <= 100%"),
         pt.Assert(payment_tolerance.get() <= pt.Int(100), comment="Payment tolerance must be <= 100%"),
 
         # Initialization
-        app.state.App_ID_catalogo.set(app_id_catalogo.get()),
+        app.state.App_ID_catalogo.set(app_id_catalog.get()),
         app.state.Price_SLA.set(price.get()),
         app.state.Threshold.set(threshold.get()),
         app.state.Tolerance.set(tolerance.get()),
@@ -332,7 +332,7 @@ def sla_check(
 
 @app.external
 def handshake(
-    app_id_catalogo: pt.abi.Application,
+    app_id_catalog: pt.abi.Application,
     provider: pt.abi.Account,
     price_f: pt.abi.Uint64,
     threshold_f: pt.abi.Uint64,
@@ -346,13 +346,13 @@ def handshake(
     return pt.Seq(
         # Verify catalog app ID
         pt.Assert(
-            app_id_catalogo.application_id() == app.state.App_ID_catalogo,
+            app_id_catalog.application_id() == app.state.App_ID_catalogo,
             comment="Invalid catalog app ID"
         ),
 
         # Contact catalog
         pt.InnerTxnBuilder.ExecuteMethodCall(
-            app_id=app_id_catalogo.application_id(),
+            app_id=app_id_catalog.application_id(),
             method_signature=ct.get_entry_provider.method_signature(),
             args=[provider]
         ),
@@ -468,17 +468,17 @@ def receive_packet_from_forwarder(NetID_forwarder: pt.abi.String, *, output: pt.
     )
 
 @app.external()
-def pay(app_id_catalogo: pt.abi.Application, receiver: pt.abi.Account) -> pt.Expr:
+def pay(app_id_catalog: pt.abi.Application, receiver: pt.abi.Account) -> pt.Expr:
     return pt.Seq(
         # Verify catalog app ID
         pt.Assert(
-            app_id_catalogo.application_id() == app.state.App_ID_catalogo,
+            app_id_catalog.application_id() == app.state.App_ID_catalogo,
             comment="Invalid catalog app ID"
         ),
 
         # Contact catalog
         pt.InnerTxnBuilder.ExecuteMethodCall(
-            app_id=app_id_catalogo.application_id(),
+            app_id=app_id_catalog.application_id(),
             method_signature=ct.get_entry_provider.method_signature(),
             args=[receiver]
         ),

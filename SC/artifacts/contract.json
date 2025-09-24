@@ -20,7 +20,7 @@
             "args": [
                 {
                     "type": "uint64",
-                    "name": "app_id_catalogo"
+                    "name": "app_id_catalog"
                 },
                 {
                     "type": "uint64",
@@ -123,7 +123,7 @@
             "args": [
                 {
                     "type": "application",
-                    "name": "app_id_catalogo"
+                    "name": "app_id_catalog"
                 },
                 {
                     "type": "account",
@@ -159,7 +159,7 @@
             "args": [
                 {
                     "type": "application",
-                    "name": "app_id_catalogo"
+                    "name": "app_id_catalog"
                 },
                 {
                     "type": "account",
