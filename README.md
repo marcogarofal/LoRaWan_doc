@@ -97,12 +97,21 @@ project/
 
 
 
+## PHASE 0:
+```bash
+python3 _catalogo.py
+```
+Compiles the Catalog smart contract
+Generates TEAL bytecode and metadata files
+Exports artifacts to ./catalogo/artifacts/
 
 
-
-
-
-
+```bash
+python3 _SC.py
+```
+Compiles the SLA smart contract
+Generates TEAL bytecode and metadata files
+Exports artifacts to ./SC/artifacts/
 
 
 
