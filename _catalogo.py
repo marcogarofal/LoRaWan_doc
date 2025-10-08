@@ -169,5 +169,6 @@ def provider_exists(provider: pt.abi.Account, *, output: pt.abi.Bool) -> pt.Expr
 
 ##################################################################################################
 
+
 if __name__ == "__main__":
     app.build().export("./catalogo/artifacts")
