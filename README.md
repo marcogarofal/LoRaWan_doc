@@ -1,6 +1,11 @@
 # SLA Success Scenario - Compatible Values
 
 
+## Overview
+
+**Vodafone** and **Tim** are identifier names used in this guide to represent two different network operators/providers in the LoRaWAN roaming scenario. These names are used purely as examples to demonstrate the interaction between two distinct providers in the system.
+
+---
 
 
 
